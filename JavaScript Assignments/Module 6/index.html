@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+	INR : <input type="number" id="inr"><br><br>
+	<p>USD : <h1 id="usd"></h2></p>
+	<input type="submit" id="calculate" value="Calculate" onclick="convertToUSD()"></button>
+<script>
+	function convertToUSD(){
+		var inr=document.getElementById("inr").value;
+		document.getElementById("usd").innerHTML=(inr/72.56).toFixed(2);
+	}
+</script>
+</body>
+</html>

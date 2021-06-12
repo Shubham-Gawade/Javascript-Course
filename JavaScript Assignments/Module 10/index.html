@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+	<p style="font-size:40px;">Enter Your Marks : <input type="number" id="marks" style="height:30px;font-size:25pt;"></p>
+	<input type="submit" value="View Grade" onclick="viewGrade()">
+	<p style="font-size:40px;">Result : <span id="result"></span></p>
+<script>
+	function viewGrade(){
+		var score = document.getElementById("marks").value;
+		var grade;
+
+		if(score == "" || score == null)
+		{
+			alert("Please enter marks!!!");
+			return false;
+		}
+		if(score > 100 || score < 0)
+		{
+			alert("Please enter marks between 0 to 100");
+			return false;
+		}
+		
+		if (score > 80) {
+			grade = "Grade A";
+		} else if (score > 60) {
+			grade = "Grade B";
+		} else if (score > 40) {
+			grade = "Grade C";
+		} else if (score > 0) {
+			grade = "Fail";
+		}
+
+		document.getElementById("result").innerHTML=grade;
+	}
+</script>
+</body>
+</html>

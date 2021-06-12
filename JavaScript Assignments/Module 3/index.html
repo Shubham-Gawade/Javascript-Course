@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Display Salary</title>
+</head>
+<body>
+	<h1 style="font-size:40px">My Salary : <span id="salary" style="color:blue;"></span></h1>
+	<script>
+		var employee = {
+			empNumber : "101",
+			empName : "Shubham",
+			salary : 450000
+		};
+		
+		document.getElementById("salary").innerHTML = getSalary();
+		
+		function getSalary(){
+			return employee["salary"];
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.resizedTextbox 
+		{
+			width: 350px; 
+			height: 30px
+		}
+
+		body{
+			background-color:lightgreen;
+		}
+
+		h1 {
+		  text-align: center;
+		  font-size: 03em;
+		  color: black;
+		}
+
+		table { 
+			width: 700px;
+		  }
+		  
+		  th {
+			padding: .3em;
+		  }
+		  
+		  td {
+			background-color:#ffffff;
+			padding-left: .5em;
+			padding-right: .5em;
+		  }
+		  h2{
+		  color:Orange;
+		  }
+		}
+
+		#d1{
+			width: 30em;  height: 5em;
+		}
+	</style>
+</head>
+<body>
+<a style="float:right" href="loginForm.html"><input type="submit" value="Login"></a>
+<a style="float:right; margin-right:40px" href="registrationForm.html"><input type="submit" value="Register"></a> 
+<h1>Registration Form</h1><br>
+<center>
+<table>
+	<form name="testForm" id="add-user-form">
+		<tr>
+		<div id="d1">
+			<td><h3>Name :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[A-Za-z]{1,32}"  placeholder="Enter your name" id="name" required></td></h3>
+		</tr>
+		<tr>
+			<td><h3>Email ID :</h3></td>
+			<td><h3><input type="email" class="resizedTextbox" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email-id" id="email" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Aadhar card no :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[0-9]{12}" placeholder="Enter your aadhar card no" id="aadharno" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Mobile no. :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[789][0-9]{9}" placeholder="Enter your phone no." id="mono" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Username :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" placeholder="Enter your username" id="username" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Password :</h3></td>
+			<td><h3><input type="password" class="resizedTextbox" placeholder="Enter your password" id="password" required></h3></td>
+		</tr>
+		</div>
+		</table>
+		<br><br>
+		<input type="submit" id="search" onclick="validateField()" style="height=60px; font-size:20px;" value="Submit">
+		<input type="reset" id="search" style="height=60px; font-size:20px;">		 
+		
+	</form>
+</center>	
+</body>
+
+<script>
+	function validateField() 
+	{
+	  var name = document.getElementById("name").value;
+	  var email = document.getElementById("email").value;
+	  var aadharno = document.getElementById("aadharno").value;
+	  var mono = document.getElementById("mono").value;
+	  var username = document.getElementById("username").value;
+	  var password = document.getElementById("password").value;
+	 
+	  var txt = "";
+	  if (name.validity.patternMismatch) 
+	  {
+		txt = name.validationMessage;
+		alert(txt);
+		name.value = "";
+	  } 
+	  else if(email.validity.patternMismatch)
+	  {
+		txt = email.validationMessage;
+		console.log(txt);
+		alert(txt);
+		email.value = "";
+	  }
+	  else if(aadharno.validity.patternMismatch)
+	  {
+		txt = aadharno.validationMessage;
+		console.log(txt);
+		alert(txt);
+		aadharno.value = "";
+	  }
+	  else if(mono.validity.patternMismatch)
+	  {
+		txt = mono.validationMessage;
+		console.log(txt);
+		alert(txt);
+		mono.value = "";
+	  }
+	  else if(password.validity.patternMismatch)
+	  {
+		txt = password.validationMessage;
+		console.log(txt);
+		alert(txt);
+		password.value = "";
+	  }
+	  else{
+		$(document).ready(function(){
+			$('#add-user-form').on('submit',function(e){
+				addTask(e);
+			});
+		}
+	  }
+	}
+	function addTask(e){
+		var newDate=new Date;
+		id=newDate.getTime();
+		
+	    var name=$('#name').val();
+	    var email=$('#email').val();
+	    var aadharno=$('#aadharno').val();
+	    var mono=$('#mono').val();
+	    var username=$('#username').val();
+	    var password=$('#password').val();
+		var users = JSON.parse(localStorage.getItem('users'));
+
+		if(users == null){
+			users=[];
+		}
+		
+		var userList = JSON.parse(localStorage.getItem('users'));
+		
+		var new_user = {
+			"id": id,
+			"name": name,
+			"email": email,
+			"aadharno": aadharno,
+			"mono": mono,
+			"username": username,
+			"password":password
+		}
+
+		users.push(new_user);
+		localStorage.setItem("users",JSON.stringify(users));
+
+		console.log("User Added");
+	}
+</script>
+</body>
+</html>

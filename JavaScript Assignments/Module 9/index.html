@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+	<p style="font-size:40px;">Current Time : <span id="content1"></span></p>
+<script>
+	var currentDate = new Date();
+	document.getElementById("content1").innerHTML=currentDate.toTimeString();;
+</script>
+</body>
+</html>

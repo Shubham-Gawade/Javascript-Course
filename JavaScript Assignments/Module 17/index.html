@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+<h1 style="font-size:60px">Text Height And Colours</h1>
+<p><span id="content1"></span></p>
+<p><span id="content2"></span></p>
+<p><span id="content3"></span></p>
+<p><span id="content4"></span></p>
+<p><span id="content5"></span></p>
+<p><span id="content6"></span></p>
+
+<script>
+(function(){
+	var msg = prompt("Please enter your message");
+	var colors=["red","blue","green","cyan","brown","yellow"];
+	var sizes=["h1","h2","h3","h3","h4","h5","h6"];
+	
+	for (i=0,j=0; i<colors.length && j<sizes.length; i++,j++) 
+	{ 
+		document.getElementById("content"+(i+1)).innerHTML="<"+sizes[j]+">"+msg+"</"+sizes[j]+">";
+		document.getElementById("content"+(i+1)).style.color=colors[i];
+	}
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+	<p style="font-size:40px;">Before Sorting : 2,1,10</p>
+	<p style="font-size:40px;">After Sorting : <span id="content1"></span></p>
+<script>
+	var numArray = [2, 1, 10];
+
+	(function jsFunction() {
+		numArray.sort(function(a, b) {return b-a});
+		document.getElementById("content1").
+			innerHTML=numArray;
+	})();
+</script>
+</body>
+</html>

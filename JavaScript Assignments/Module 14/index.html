@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.resizedTextbox 
+		{
+			width: 350px; 
+			height: 30px
+		}
+
+		body{
+			background-color:lightgreen;
+		}
+
+		h1 {
+		  text-align: center;
+		  font-size: 03em;
+		  color: black;
+		}
+
+		table { 
+			width: 700px;
+		  }
+		  
+		  th {
+			padding: .3em;
+		  }
+		  
+		  td {
+			background-color:#ffffff;
+			padding-left: .5em;
+			padding-right: .5em;
+		  }
+		  h2{
+		  color:Orange;
+		  }
+		}
+
+		#d1{
+			width: 30em;  height: 5em;
+		}
+	</style>
+</head>
+<body>
+	<body>
+<h1>Registration Form</h1><br>
+<center>
+<table>
+	<form name="testForm">
+		<tr>
+		<div id="d1">
+			<td><h3>Name :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[A-Za-z]{1,32}"  placeholder="Enter your name" id="name" required></td></h3>
+		</tr>
+		<tr>
+			<td><h3>Email ID :</h3></td>
+			<td><h3><input type="email" class="resizedTextbox" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email-id" id="email" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Aadhar card no :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[0-9]{12}" placeholder="Enter your aadhar card no" id="aadharno" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Mobile no. :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" pattern="[789][0-9]{9}" placeholder="Enter your phone no." id="mono" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Username :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" placeholder="Enter your username" id="username" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Password :</h3></td>
+			<td><h3><input type="password" class="resizedTextbox" pattern="[a-zA-Z][0-9]{8,}" placeholder="Enter your password" id="password" required></h3></td>
+		</tr>
+		</div>
+		</table>
+		<br><br>
+		<input type="submit" id="search" onclick="validateField()" style="height=60px; font-size:20px;" value="Submit">
+		<input type="reset" id="search" style="height=60px; font-size:20px;">		 
+		
+	</form>
+</center>	
+</body>
+
+<script>
+	function validateField() 
+	{
+	  var name = document.getElementById("name");
+	  var email = document.getElementById("email");
+	  var aadharno = document.getElementById("aadharno");
+	  var mono = document.getElementById("mono");
+	  var password = document.getElementById("password");
+	  var txt = "";
+	  if (name.validity.patternMismatch) 
+	  {
+		txt = name.validationMessage;
+		alert(txt);
+		name.value = "";
+	  } 
+	  else if(email.validity.patternMismatch)
+	  {
+		txt = email.validationMessage;
+		console.log(txt);
+		alert(txt);
+		email.value = "";
+	  }
+	  else if(aadharno.validity.patternMismatch)
+	  {
+		txt = aadharno.validationMessage;
+		console.log(txt);
+		alert(txt);
+		aadharno.value = "";
+	  }
+	  else if(mono.validity.patternMismatch)
+	  {
+		txt = mono.validationMessage;
+		console.log(txt);
+		alert(txt);
+		mono.value = "";
+	  }
+	  else if(password.validity.patternMismatch)
+	  {
+		txt = password.validationMessage;
+		console.log(txt);
+		alert(txt);
+		password.value = "";
+	  }
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.resizedTextbox 
+		{
+			width: 350px; 
+			height: 30px
+		}
+
+		body{
+			background-color:lightgreen;
+		}
+
+		h1 {
+		  text-align: center;
+		  font-size: 03em;
+		  color: black;
+		}
+
+		table { 
+			width: 700px;
+		  }
+		  
+		  th {
+			padding: .3em;
+		  }
+		  
+		  td {
+			background-color:#ffffff;
+			padding-left: .5em;
+			padding-right: .5em;
+		  }
+		  h2{
+		  color:Orange;
+		  }
+		}
+
+		#d1{
+			width: 30em;  height: 5em;
+		}
+	</style>
+</head>
+<body>
+<a style="float:right" href="loginForm.html"><input type="submit" value="Login"></a>
+<a style="float:right; margin-right:40px" href="registrationForm.html"><input type="submit" value="Register"></a> 
+<h1>Login Form</h1><br>
+<center>
+<table>
+	<form name="loginForm" id="login-user-form">
+		<tr>
+			<td><h3>Username :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" placeholder="Enter your username" id="username" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Password :</h3></td>
+			<td><h3><input type="password" class="resizedTextbox" placeholder="Enter your password" id="password" required></h3></td>
+		</tr>
+		</div>
+		</table>
+		<br><br>
+		<input type="submit" id="search" onclick="validateField()" style="height=60px; font-size:20px;" value="Login">
+		<input type="reset" id="search" style="height=60px; font-size:20px;">		 
+		
+	</form>
+</center>	
+</body>
+
+<script>
+	function validateField() 
+	{
+	  var username = document.getElementById("username");
+	  var password = document.getElementById("password");
+	  
+	  else{
+		$(document).ready(function(){
+			$('#login-user-form').on('submit',function(e){
+				loginUser(e);
+			});
+		}
+	  }
+	}
+	function loginUser(e){
+		
+	    var username=$('#username').val();
+	    var password=$('#password').val();
+		var $_GET=getQueryParams(document.location.search);
+		id=$_GET['id'];
+		
+		var taskList=JSON.parse(localStorage.getItem("users"));
+
+		for(var i=0;i<taskList.length;i++){
+			if(taskList[i].id == id){
+				alert("Login Successfull");
+			}
+		}
+	}
+</script>
+</body>
+</html>

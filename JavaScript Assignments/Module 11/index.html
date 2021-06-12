@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html> 
+ <head>  
+</head> 
+  
+<body> 
+    <h1>Text Decoration</h1> 
+	
+	<h3>Enter Text : </h3>
+	<textarea id="inputtext" rows="4" cols="50"></textarea>
+	<br>
+	<h2>Use CheckBox for Selecting Option</h2> 
+    <table>
+		<tr>
+			<td>
+				<label for="bold"> 
+                    <input type="checkbox" id="bold" /> 
+                    Bold 
+                </label> 
+			</td>
+			<td>
+				<label for="italic"> 
+                    <input type="checkbox" id="italic" /> 
+                    Italic 
+                </label> 
+			</td>
+			<td>
+				<label for="underline"> 
+                    <input type="checkbox" id="underline" /> 
+                    Underline 
+                </label> 
+			</td>
+		</tr>
+	</table>
+	<br>
+	<input type="submit" value="Apply" onclick="changeText()">
+	<p id="content"></p>
+  
+    <script> 
+        function changeText() { 
+			var bold=document.getElementById("bold");
+			var italic=document.getElementById("italic");
+			var underline=document.getElementById("underline");
+			var result=document.getElementById("content");
+
+			if(bold.checked == true){
+				var inputtext=document.getElementById("inputtext").value;
+				document.getElementById("content").innerHTML=inputtext;
+				result.style.fontSize = "30px";
+				result.style.fontWeight = "bold";
+			}
+			if(italic.checked == true){
+				var inputtext=document.getElementById("inputtext").value;
+				document.getElementById("content").innerHTML=inputtext;
+				result.style.fontSize = "30px";
+				result.style.fontStyle = "italic";
+			}
+			if(underline.checked == true){
+				var inputtext=document.getElementById("inputtext").value;
+				document.getElementById("content").innerHTML=inputtext;
+				result.style.fontSize = "30px";
+				result.style.textDecoration = "underline";
+			}
+        } 
+    </script> 
+</body> 
+  
+</html>

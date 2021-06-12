@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.resizedTextbox 
+		{
+			width: 350px; 
+			height: 30px
+		}
+
+		body{
+			background-color:lightgreen;
+		}
+
+		h1 {
+		  text-align: center;
+		  font-size: 03em;
+		  color: black;
+		}
+
+		table { 
+			width: 700px;
+		  }
+		  
+		  th {
+			padding: .3em;
+		  }
+		  
+		  td {
+			background-color:#ffffff;
+			padding-left: .5em;
+			padding-right: .5em;
+		  }
+		  h2{
+		  color:Orange;
+		  }
+		}
+
+		#d1{
+			width: 30em;  height: 5em;
+		}
+	</style>
+</head>
+<body>
+<div id="error" style="float:right; height:80px; width:300px; background-color:orange; display:none">
+	<p id="message" style="padding:10px">
+</p>
+</div>
+<h1 style="float:left; margin-left:600px;">Login Form</h1><br>
+<center>
+<table>
+	<form onsubmit="return validateField()">
+		<tr>
+			<td><h3>Username :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" placeholder="Enter your username" id="username" required></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Password :</h3></td>
+			<td><h3><input type="password" class="resizedTextbox" placeholder="Enter your password" id="password" required></h3></td>
+		</tr>
+		</div>
+		</table>
+		<br><br>
+		<input type="submit" id="search" style="height=60px; font-size:20px;" value="Login">
+		<input type="reset" id="search" style="height=60px; font-size:20px;">		 
+	</form>
+</center>	
+</body>
+<script>
+	function validateField()
+	{
+		var username=document.getElementById("username").value;
+		var password=document.getElementById("password").value;
+		var error=document.getElementById("error");
+		if(username == "" && password == "")
+		{
+			alert("username or password can not be empty");
+			return false;
+		}
+		else if(username != "admin" && password != "admin")
+		{
+			setTimeout(function () 
+			{
+				error.style.display="block";
+				document.getElementById("message").innerHTML='Invalid Username or password'
+				document.getElementById("message").style.fontSize="20px";
+				document.getElementById("message").style.fontWeight="bold";
+			}, 500);
+			return false;
+		}
+	}
+	function cancelBlock()
+	{
+		var error=document.getElementById("error");
+		error.style.display="none";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="style.css">
+<title>Registration Form</title>
+	<script type="text/javascript">
+		function validateFields(){
+			var fname = document.forms["testForm"]["name"].value;
+			var lname = document.forms["testForm"]["lname"].value;
+			var email = document.forms["testForm"]["email"].value;
+			var atLocation = email.indexOf("@");
+			var dotLocation = email.lastIndexOf(".");
+			
+			var pincode = document.forms["testForm"]["pincode"].value;
+			
+			if ( fname == null || fname == "" ) {
+				alert( "First Name is mandatory !!!" );
+				return false;
+			
+			if ( lname == null || lname == "" ) {
+				alert( "Last Name is mandatory !!!" );
+				return false;
+			}
+			if ( email == null || email == "" ) {
+				alert( "Email is mandatory !!!" );
+				return false;
+			}
+			if(isNaN(zipcode) || zipcode.length != 6 ) {
+				alert( "Please provide a 6 digit pincode." );
+				document.testForm.zipcode.focus() ;
+				return false;
+			}
+			if(atLocation < 1 || (dotLocation - atLocation < 2 )){
+			   alert ( "Email format not valid !!!" );
+				document.testForm.email.focus();
+				return false;
+			}
+		}
+		function nospacenumbertxt(x)
+		{
+			if((x.keyCode == 32))
+				{
+					alert("No space and number allowed");
+					return false;
+				}
+			else if(x.keyCode > 90 &&  x.keyCode < 97)
+				{
+				alert("No specific letter allowed");
+				return false;
+				}
+			else if(x.keyCode < 65 &&  x.keyCode > 47 )
+				{
+				alert("No number or specific character allowed");
+				return false;
+				}
+			else if(x.keyCode > 122 )
+				{
+				alert("no specific character allowed");
+				return false;
+				}
+			return true;
+		}
+		function nospacetxt(x)
+		{
+			if((x.keyCode == 32))
+				{
+					alert("No space and number allowed");
+					return false;
+				}
+			return true;
+		}
+		function validateDate()
+		{
+			var d=document.getElementById("date").value;
+			var Split=d.value.split("-");
+			if(parseInt(Split[2]) > 2000)
+				{
+					alert("date not valid");
+					return false;
+				}
+			else
+				{
+					return true;
+				}
+		}
+	</script>
+</head>
+<body>
+<h1>Registration Form</h1><br>
+<center>
+<table>
+	<form name="testForm" onsubmit="return validateFields()">
+		<tr>
+		<div id="d1">
+			<td><h3>First Name :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox"  name="fname" placeholder="Enter your firstname" id="fname" autocomplete="off" onkeydown="return nospacenumbertxt(event)"></td></h3>
+		</tr>
+		<tr>
+			<td><h3>Last Name :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox"  name="lname" placeholder="Enter your lastname" id="lname" autocomplete="off" onkeydown="return nospacenumbertxt(event)"></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Gender:</h3></td>
+			<td><h3><input type="radio" name="gender" value="Male">Male
+			<input type="radio" name="gender" value="Female">Female</h3></td>
+		</tr>
+		
+		<tr>
+			<td><h3>Date of Birth :</h3></td>
+			<td><h3><input type="date" class="resizedTextbox" name="dob" placeholder="Enter your date of birth" id="date" autocomplete="off" oninput ="this.validateDate()"></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Pin code :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" name="pincode" placeholder="Enter your pincode" title="Only 6 digits" autocomplete="off"></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Aadhar card no :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" name="adharno" placeholder="Enter your aadhar card no" id="adharno" title="Only 12 digits" autocomplete="off"></h3></td>
+		</tr>
+		
+		<tr>
+			<td><h3>Mobile no. :</h3></td>
+			<td><h3><input type="text" class="resizedTextbox" name="mono" placeholder="Enter your phone no." title="phone no. must be of 10 digit and always start from 7 or 8 or 9" id="mono" autocomplete="off"></h3></td>
+		</tr>
+		<tr>
+			<td><h3>Email ID :</h3></td>
+			<td><h3><input type="email" class="resizedTextbox" name="email" placeholder="Enter your email-id" title="Email-id must be in format characters@characters.domain(for eg:name@gmail.com)" id="email" autocomplete="off"></h3></td>
+		</tr>
+		</div>
+		</table>
+		
+		<input type="submit" id="search" value="Submit">
+		<input type="reset" id="search">		 
+		
+		
+	</form>
+</center>	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1 >
+	<span > Strict Mode</span>
+</h1>
+<p><span id="content1" style="font-size:100px;"></span></p>
+<p><span id="content2"></span></p>
+<p style="font-size:50px;">Here one value is displayed because it was first declared then used but other value(used but not declared) shows the error because it is in the strict mode</p>
+
+<script>
+
+ "use strict";
+
+ var c = 20;
+
+ document.getElementById("content1").innerHTML=c;
+
+ (function jsFunction() {
+ 	"use strict";
+ 	b = 10;
+ 	document.getElementById("content2").innerHTML=b;
+ })();
+
+
+
+</script>
+</body>
+</html>

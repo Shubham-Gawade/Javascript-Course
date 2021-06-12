@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+ <head>  
+</head> 
+  
+<body> 
+    <h1  style="font-size:35px;">Enter a number : </h3>
+	<p><input type="number" id="number" style="height=100px; font-size:30px;"><span id="result" style="padding:20px; font-size:30px; color:red"></span>
+	<p><input type="submit" value="Submit" onclick="checkNumber()" style="height=60px; font-size:20px;"></p>
+  
+    <script> 
+        function checkNumber(){
+			var num=document.getElementById("number").value;
+			try
+			{
+				if(num>0)
+				{
+					throw "Given number is Positive";
+				}
+				else if(num<0)
+				{
+					throw "Given number is Negative";
+				}
+				else
+				{
+					throw "Given number is Neither Positive nor Negative";
+				}
+			}
+			catch(e)
+			{
+				document.getElementById("result").innerHTML=e;
+				document.getElementById("number").value="";
+			}
+		}
+    </script> 
+</body> 
+  
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+	<p style="font-size:40px;">My Next BirthDay : 2022-01-20</p>
+	<p style="font-size:40px;">Day : <span id="content1"></span></p>
+<script>
+	var myBirthDate = new Date("2022-01-20");
+	var weekday = new Array(7);
+	weekday[0] = "Sunday";
+	weekday[1] = "Monday";
+	weekday[2] = "Tuesday";
+	weekday[3] = "Wednesday";
+	weekday[4] = "Thursday";
+	weekday[5] = "Friday";
+	weekday[6] = "Saturday";
+
+	document.getElementById("content1").innerHTML=weekday[myBirthDate.getDay()];
+</script>
+</body>
+</html>
